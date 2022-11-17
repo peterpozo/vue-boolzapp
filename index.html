@@ -22,7 +22,7 @@
     <script src="js/app.js" defer></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="app">
       <div class="leftside">
         <!-- Header  -->
         <div class="header">
@@ -38,23 +38,40 @@
         <!-- Search  -->
         <div class="search-chat">
           <div>
-            <input type="text" placeholder="Search or start new chat" />
+            <input
+              type="text"
+              placeholder="Search or start new chat"
+              v-model="research"
+              @keyup="searchContact"
+            />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
         <!-- chat list  -->
         <div class="chat-list">
-          <div class="block">
+          <div
+            class="block"
+            v-for="(contact, i) in contacts"
+            @click="currentChat = i"
+          >
             <div class="imgbx">
-              <img src="img/avatar01.avif" class="cover" />
+              <img
+                :src="'img/'+ contact.avatar + '.avif' "
+                :alt="contact.name"
+                class="cover"
+              />
             </div>
             <div class="details">
               <div class="listHead">
-                <h4>Peter Pozo</h4>
-                <p class="time">10:56</p>
+                <h4>{{ contact.name }}</h4>
+                <p class="time">
+                  {{ contact.messages[contact.messages.length - 1].date }}
+                </p>
               </div>
               <div class="message-p">
-                <p>Hello Whatsapp</p>
+                <p>
+                  {{ contact.messages[contact.messages.length - 1].message }}
+                </p>
               </div>
             </div>
           </div>
@@ -65,9 +82,12 @@
         <div class="header">
           <div class="imgText">
             <div class="user-img">
-              <img src="img/avatar.avif" class="cover" />
+              <img
+                :src="'img/'+ contacts[currentChat].avatar + '.avif' "
+                class="cover"
+              />
             </div>
-            <h4>Peter Pozo <br /><span>online</span></h4>
+            <h4>{{ contacts[currentChat].name }}<br /><span>online</span></h4>
           </div>
           <ul class="nav-icons">
             <li><i class="fa-solid fa-magnifying-glass"></i></li>
