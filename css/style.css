@@ -34,7 +34,7 @@ body {
   position: relative;
   flex: 30%;
   background: #fff;
-  border-right: 1px solid rgba(0, 0, 0, 0.02);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .container .rightside {
@@ -297,4 +297,36 @@ body {
     transparent 50%,
     transparent
   );
+}
+
+.chatbox-input {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: #f0f0f0;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbox-input .ion-icon {
+  cursor: pointer;
+  font-size: 1.8em;
+  color: #52585c;
+}
+
+.chatbox-input .ion-icon:nth-child(1) {
+  margin-right: 15px;
+}
+
+.chatbox-input input {
+  position: relative;
+  width: 90%;
+  margin: 0 20px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-size: 1em;
 }
