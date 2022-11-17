@@ -200,3 +200,21 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.imgText {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgText h4 {
+  font-weight: 500;
+  line-height: 1.2em;
+  margin-left: 15px;
+}
+
+.imgText h4 span {
+  font-size: 0.8em;
+  color: #555;
+}
