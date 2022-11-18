@@ -224,7 +224,6 @@ body {
 .chatBox {
   position: relative;
   width: 100%;
-  height: calc(30% - 120px);
   padding: 50px;
   overflow-y: auto;
 }
