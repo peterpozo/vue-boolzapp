@@ -165,24 +165,10 @@ new Vue({
       },
     ],
     currentChat: 0,
-    research: "",
   },
   methods: {
     selectedChat(index) {
       this.currentChat = index;
-    },
-    searchContact() {
-      for (let i = 0; i < this.contacts.length; i++) {
-        if (
-          this.contacts[i].name
-            .toLowerCase()
-            .includes(this.research.toLowerCase())
-        ) {
-          this.contacts[i].visible = true;
-        } else {
-          this.contacts[i].visible = false;
-        }
-      }
     },
   },
 });

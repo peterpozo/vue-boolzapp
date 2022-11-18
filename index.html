@@ -38,12 +38,7 @@
         <!-- Search  -->
         <div class="search-chat">
           <div>
-            <input
-              type="text"
-              placeholder="Search or start new chat"
-              v-model="research"
-              @keyup="searchContact"
-            />
+            <input type="text" placeholder="Search or start new chat" />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
@@ -96,12 +91,12 @@
         </div>
 
         <!-- chat box  -->
-        <div class="chatBox">
-          <div class="message my-message">
-            <p>Hi<br /><span>12:15</span></p>
+        <div class="chatBox" v-for="(obj, i) in contacts[currentChat].messages">
+          <div class="message my-message" v-if="obj.status === 'sent' ">
+            <p>{{ obj.message }}<br /><span>12:15</span></p>
           </div>
-          <div class="message friend-message">
-            <p>Hello<br /><span>12:15</span></p>
+          <div class="message friend-message" v-if="obj.status === 'received' ">
+            <p>{{ obj.message }}<br /><span>12:15</span></p>
           </div>
         </div>
 
