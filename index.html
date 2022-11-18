@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="img/favicon-64x64.ico"
+      type="image/x-icon"
+    />
     <title>Boolzapp</title>
     <!-- Style  -->
     <link rel="stylesheet" href="css/style.css" />
@@ -17,6 +22,10 @@
     <!-- Javascript  -->
     <script
       src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"
       defer
     ></script>
     <script src="js/app.js" defer></script>
@@ -104,7 +113,12 @@
         <div class="chatbox-input">
           <i class="fa-solid fa-face-smile ion-icon"></i>
           <i class="fa-solid fa-paperclip ion-icon"></i>
-          <input type="text" placeholder="Type a message" />
+          <input
+            type="text"
+            placeholder="Type a message"
+            v-model="newMessage"
+            @keyup.enter="sendMessage"
+          />
           <i class="fa-solid fa-microphone ion-icon"></i>
         </div>
       </div>

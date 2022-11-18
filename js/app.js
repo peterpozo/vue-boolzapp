@@ -165,10 +165,28 @@ new Vue({
       },
     ],
     currentChat: 0,
+    newMessage: "",
   },
   methods: {
     selectedChat(index) {
       this.currentChat = index;
+    },
+    sendMessage() {
+      this.contacts[this.currentChat].messages.push({
+        date: luxon.DateTime.now().toFormat("dd/MM/yyyy HH:mm"),
+        message: this.newMessage,
+        status: "sent",
+      });
+      this.newMessage = "";
+      const receiverIndex = this.currentChat;
+      setTimeout(() => {
+        console.log(this);
+        this.contacts[receiverIndex].messages.push({
+          date: luxon.DateTime.now().toFormat("dd/MM/yyyy HH:mm"),
+          message: "OK",
+          status: "received",
+        });
+      });
     },
   },
 });
