@@ -47,7 +47,12 @@
         <!-- Search  -->
         <div class="search-chat">
           <div>
-            <input type="text" placeholder="Search or start new chat" />
+            <input
+              type="text"
+              placeholder="Search or start new chat"
+              v-model="search"
+              @keyup="chatSearch"
+            />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
@@ -57,6 +62,7 @@
             class="block"
             v-for="(contact, i) in contacts"
             @click="currentChat = i"
+            :class="contact.visible == false  ?  'hidden': '' "
           >
             <div class="imgbx">
               <img

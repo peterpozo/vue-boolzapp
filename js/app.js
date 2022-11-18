@@ -166,6 +166,7 @@ new Vue({
     ],
     currentChat: 0,
     newMessage: "",
+    search: "",
   },
   methods: {
     selectedChat(index) {
@@ -187,6 +188,19 @@ new Vue({
           status: "received",
         });
       });
+    },
+    chatSearch() {
+      for (let i = 0; i < this.contacts.length; i++) {
+        if (
+          this.contacts[i].name
+            .toLowerCase()
+            .includes(this.search.toLowerCase())
+        ) {
+          this.contacts[i].visible = true;
+        } else {
+          this.contacts[i].visible = false;
+        }
+      }
     },
   },
 });
